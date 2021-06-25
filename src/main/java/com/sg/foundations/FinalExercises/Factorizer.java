@@ -3,9 +3,7 @@ package com.sg.foundations.FinalExercises;
 import java.util.Scanner;
 
 public class Factorizer {
-    public static void main(String[] args) {
-
-        //Initialise variables and objects we want to use
+    public void FactorizeNumbers(){
         int userNum;
         int factorCount = 0;
         int cumuFactor = 0;
@@ -41,6 +39,5 @@ public class Factorizer {
         }else{
             System.out.println(userNum + " is not a prime number!");
         }
-
     }
 }

@@ -4,8 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class LuckySevens {
-    public static void main(String[] args) {
-
+    public void playLuckySevens(){
         //Declare variables and initialise objects for random numbers and userinput
         int noOfDollars;
         int maxDollars = 0;
@@ -42,7 +41,5 @@ public class LuckySevens {
         }
         System.out.println("You are broke after " + noOfRolls + " rolls." );
         System.out.println("You should have quit after " + maxDollarIndex + " rolls when you had $" + maxDollars + ".");
-
-
     }
 }

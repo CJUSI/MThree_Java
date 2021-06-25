@@ -4,8 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class InterestCalculator {
-    public static void main(String[] args) {
-
+    public void CalculateInterest(){
         //Declare required variables
         double annualInterestRate;
         double quarterlyInterestRate;
@@ -38,9 +37,5 @@ public class InterestCalculator {
             System.out.println("Earned: $" + df.format((currentBalance - tempBalance)));
             System.out.println("Ended With: $" + df.format(currentBalance));
         }
-
-
-
-
     }
 }
