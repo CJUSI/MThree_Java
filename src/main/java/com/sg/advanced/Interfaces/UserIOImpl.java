@@ -31,6 +31,7 @@ public class UserIOImpl implements UserIO{
                 this.print("Invalid Input. Please try again.");
             }
         }
+
         return newInt;
     }
 
@@ -41,7 +42,6 @@ public class UserIOImpl implements UserIO{
         do {
             System.out.println(prompt);
             newInt = Integer.parseInt(console.nextLine());
-
         } while(newInt > max || newInt < min);
 
         return newInt;
@@ -56,7 +56,6 @@ public class UserIOImpl implements UserIO{
                 this.print("Invalid Input. Please try again.");
             }
         }
-
     }
 
     @Override
@@ -65,7 +64,6 @@ public class UserIOImpl implements UserIO{
         do {
             System.out.println(prompt);
             newDouble = Double.parseDouble(console.nextLine());
-
         } while(newDouble > max || newDouble < min);
 
         return newDouble;
@@ -110,11 +108,8 @@ public class UserIOImpl implements UserIO{
         do {
             System.out.println(prompt);
             newLong = Long.parseLong(console.nextLine());
-
         } while(newLong > max || newLong < min);
 
         return newLong;
     }
-
-
 }
