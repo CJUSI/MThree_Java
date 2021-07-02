@@ -3,7 +3,9 @@ package com.sg.advanced.Interfaces;
 import java.util.Scanner;
 
 public class UserIOImpl implements UserIO{
-    String input;
+
+    //declare Scanner variable to get user input
+    final private Scanner console = new Scanner(System.in);
 
     @Override
     public void print(String message) {
@@ -13,26 +15,32 @@ public class UserIOImpl implements UserIO{
     @Override
     public String readString(String prompt) {
         System.out.println(prompt);
-        Scanner userInput = new Scanner(System.in);
-        String userString = userInput.nextLine();
+        String userString = console.nextLine();
         return userString;
     }
 
     @Override
     public int readInt(String prompt) {
-        System.out.println(prompt);
-        Scanner userInput = new Scanner(System.in);
-        int newInt = Integer.parseInt(userInput.nextLine());
+        boolean invalidInput = true;
+        int newInt = 0;
+        while (invalidInput) {
+            try {
+                newInt = Integer.parseInt(console.nextLine());
+                invalidInput = false; // or you can use 'break;'
+            } catch (NumberFormatException e) {
+                this.print("Invalid Input. Please try again.");
+            }
+        }
         return newInt;
     }
 
     @Override
     public int readInt(String prompt, int min, int max) {
-        Scanner userInput = new Scanner(System.in);
+
         int newInt;
         do {
             System.out.println(prompt);
-            newInt = Integer.parseInt(userInput.nextLine());
+            newInt = Integer.parseInt(console.nextLine());
 
         } while(newInt > max || newInt < min);
 
@@ -41,19 +49,22 @@ public class UserIOImpl implements UserIO{
 
     @Override
     public double readDouble(String prompt) {
-        System.out.println(prompt);
-        Scanner userInput = new Scanner(System.in);
-        double newDouble = Double.parseDouble(userInput.nextLine());
-        return newDouble;
+        while (true) {
+            try {
+                return Double.parseDouble(this.readString(prompt));
+            } catch (NumberFormatException e) {
+                this.print("Invalid Input. Please try again.");
+            }
+        }
+
     }
 
     @Override
     public double readDouble(String prompt, double min, double max) {
-        Scanner userInput = new Scanner(System.in);
         double newDouble;
         do {
             System.out.println(prompt);
-            newDouble = Double.parseDouble(userInput.nextLine());
+            newDouble = Double.parseDouble(console.nextLine());
 
         } while(newDouble > max || newDouble < min);
 
@@ -61,21 +72,22 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
-    public float readFloat(String prompt) {
-        System.out.println(prompt);
-        Scanner userInput = new Scanner(System.in);
-        float newFloat = Float.parseFloat(userInput.nextLine());
-        return newFloat;
+    public float readFloat(String msgPrompt) {
+        while (true) {
+            try {
+                return Float.parseFloat(this.readString(msgPrompt));
+            } catch (NumberFormatException e) {
+                this.print("Invalid Input. Please try again.");
+            }
+        }
     }
 
     @Override
     public float readFloat(String prompt, float min, float max) {
-        Scanner userInput = new Scanner(System.in);
         float newFloat;
         do {
             System.out.println(prompt);
-            newFloat = Float.parseFloat(userInput.nextLine());
-
+            newFloat = Float.parseFloat(console.nextLine());
         } while(newFloat > max || newFloat < min);
 
         return newFloat;
@@ -83,19 +95,21 @@ public class UserIOImpl implements UserIO{
 
     @Override
     public long readLong(String prompt) {
-        System.out.println(prompt);
-        Scanner userInput = new Scanner(System.in);
-        long newLong = Long.parseLong(userInput.nextLine());
-        return newLong;
+        while (true) {
+            try {
+                return Long.parseLong(this.readString(prompt));
+            } catch (NumberFormatException e) {
+                this.print("Invalid Input. Please try again.");
+            }
+        }
     }
 
     @Override
     public long readLong(String prompt, long min, long max) {
-        Scanner userInput = new Scanner(System.in);
         long newLong;
         do {
             System.out.println(prompt);
-            newLong = Long.parseLong(userInput.nextLine());
+            newLong = Long.parseLong(console.nextLine());
 
         } while(newLong > max || newLong < min);
 
