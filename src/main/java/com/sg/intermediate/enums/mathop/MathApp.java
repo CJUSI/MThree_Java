@@ -18,12 +18,5 @@ public class MathApp {
         int num2 = userIO.nextInt();
         MathOperator opEnum = MathOperator.valueOf(operator.toUpperCase());
         System.out.println("Result:  " + opSwitch.calculate(opEnum, num1, num2));
-
-
-
-
-
-
-
     }
 }
